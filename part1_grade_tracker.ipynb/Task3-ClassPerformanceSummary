@@ -1,0 +1,25 @@
+class_data = [
+    ("Ayesha Sharma", [88, 72, 95, 60, 78]),
+    ("Rohit Verma", [55, 68, 49, 72, 61]),
+    ("Priya Nair", [91, 85, 88, 94, 79]),
+    ("Karan Mehta", [40, 55, 38, 62, 50]),
+    ("Sneha Pillai", [75, 80, 70, 68, 85]),
+]
+
+average = []
+print("Name      | Average| Status")
+print("------------------------------")
+for name, marks in class data:
+    avg = round(sum(marks)/len(marks), 2)
+    status = "Pass" if avg >= 60 else "Fail"
+    averages.append((name, avg))
+    print(f"{name:<16} | {avg:7.2f} | {status}")
+passed = sum(1 for _, avg in averages if avg >= 60)
+failed = len(averages) - passed
+topper = max (averages, key=lambda x: x[1])
+class_avg = round(sum(avg for _, avg in averages)/len(averages), 2)
+
+print("\nNumber Passed:", passed)
+print("Number Failed:", failed)
+print("Class Topper:", topper)
+print("Class Average:", class_avg)

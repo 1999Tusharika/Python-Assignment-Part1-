@@ -1,0 +1,25 @@
+essay = " python is a versatile language. it supports object oriented, functional, and procedural programming. python is widely used in data science and machine learning. "
+
+# Step 1: Strip whitespace
+clean_essay = essay.strip().lower()
+print("Clean Essay:", clean_essay)
+
+# Step 2: Title Case
+print("Title Case:", clean_essay.title())
+
+# Step 3: Count 'python'
+print("Count of 'python':", clean_essay.count("python"))
+
+# Step 4: Replace 'python'
+print("Replace:", clean_essay.replace("python", "Python 🐍"))
+
+# Step 5: Split into sentences
+sentences = clean_essay.split(". ")
+print("Sentences List:", sentences)
+
+# Step 6: Print numberes sentences
+print("\nNumbered Sentences:")
+for i, s in enumerate(sentences, 1):
+    if not s.endswith("."):
+        s += "."
+    print(f"{i}. {s}")

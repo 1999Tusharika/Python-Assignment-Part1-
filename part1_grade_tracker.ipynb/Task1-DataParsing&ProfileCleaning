@@ -1,0 +1,32 @@
+raw_students = [
+    {"name": "ayesha SHARMA", "roll": "101", "marks_str": "88, 72, 95, 60, 78"},
+    {"name": "ROHIT verma", "roll": "102", "marks_str": "55, 68, 49, 72, 61"},
+    {"name": "Priya Nair", "roll": "103", "marks_str": "91, 85, 88, 94, 79"},
+    {"name": "karan MEHTA", "roll": "104", "marks-str": "40, 55, 38, 62, 50"},
+    {"name": "Sneha pillai", "roll": "105", "marks_str": "75, 80, 70, 68, 85"},
+    ]
+
+    cleaned_students = []
+    for student in raw_students:
+    name = student["name"].strip().title()
+    roll = int(student["roll"])
+    marks = [int(m.strip()) for m in student["marks_str"].split(",")]
+    valid_name = all(world.isalpha() for word in name.split())
+
+    print("===================================")
+    print(f"Student : {name}")
+    print(f"Roll No : {roll}")
+    print(f"Marks : {marks}")
+    print("===================================")
+    print("✓ Valid name" if valid_name else "✗ Invalid name")
+    print()
+
+    cleaned_students.append({"name": name, "roll": roll, "marks": marks})
+
+    # Special Case for roll 103
+    for s in cleaned_students:
+        if s["roll"] == 103:
+            print("Special Output for Roll 103:")
+            print("Name in ALL CAPS:", s[name].upper())
+            print("Name in lowercase:", s[name].lower())
+            

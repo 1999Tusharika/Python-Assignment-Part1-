@@ -1,0 +1,44 @@
+student_name = "Ayesha Sharma"
+subjects = ["Math", "Physics", "CS", "English", "Chemistry"]
+marks = [88, 72, 95, 60, 78]
+
+def grade(m):
+    if 90 <= m <= 100: return "A+"
+    elif 80 <= m <= 89: return "A"
+    elif 70 <= m <= 79: return "B"
+    elif 60 <= m <= 69: return "C"
+    else: return "F"
+
+# Print subjects with grades
+for subj, m in zip(subjects, marks):
+    print(f"{subj}: {m} → {grades(m)}")
+
+# Calculations
+total = sum(marks)
+avg = round(total / len(marks, 2))
+highest = max(zip(subjects, marks), key=lambda x: x[1])
+lowest = min(zip(subjects, marks), key=lambda x: x[1])
+
+print("\nTotal Marks:", total)
+print("Average Marks:", avg)
+print("Highest Scoring Subject:", highest)
+print("Lowest Scoring Subject:", lowest)
+
+# While loop for new subjects
+new_count = 0
+while True:
+    subj = input("Enter new subject (or 'done' to stop:)").strip()
+    if subj.lower() == "done":
+        break
+    try:
+        m = int(input(f"Enter marks for {subj} (0-100):"))
+        if 0 <= m <= 100:
+            subjects.append(subj)
+            marks.append(m)
+            new_count += 1
+        else:
+            print("✗ Invalid marks range. Must be 0-100.")
+    except ValueError:
+        print("✗ Invalid input. Please enter a number.")
+print(f"\nNew Subjects added: {new_count}")
+print("Updated Average:", round(sum(marks)/len(marks), 2))
